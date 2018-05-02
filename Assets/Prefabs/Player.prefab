@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20006674638086296}
   - component: {fileID: 124913522053949164}
   - component: {fileID: 81064846905339460}
+  - component: {fileID: 114882960068091126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -61,7 +62,7 @@ GameObject:
   - component: {fileID: 114508070813282694}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940526967850940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.879, y: 3.43, z: 0}
+  m_LocalPosition: {x: 7.06, y: 0.77, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4096932038824466}
@@ -100,13 +101,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659273635267160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.25, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4257199090204612}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!20 &20006674638086296
 Camera:
   m_ObjectHideFlags: 1
@@ -138,6 +139,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -240,12 +242,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b7080b768b57b49b29a67df71dbcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1229354368557502, guid: 4a9a5636f959a6b4d9bf27e43dd106e9,
+  bulletPrefab: {fileID: 1391825417697724, guid: 4b3dc2c0cdbf9c94d9ff88353af8d445,
     type: 2}
   bulletSpawn: {fileID: 4701262001785238}
   speed: 30
   maxSpeed: 7
   jumpHeight: 6
+  knockBackForce: 25
+  healthBar: {fileID: 0}
+  expBar: {fileID: 0}
+--- !u!114 &114882960068091126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397509864498364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6d56871ebf6454abcad345c8955140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!124 &124913522053949164
 Behaviour:
   m_ObjectHideFlags: 1

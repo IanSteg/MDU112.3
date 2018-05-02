@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
-
 	// Use this for initialization
 	void Start () {
 		this.GetComponent<Rigidbody> ().velocity = this.transform.forward * 10;
@@ -20,9 +19,14 @@ public class BulletController : MonoBehaviour {
 		if(newCollision.gameObject.tag == "Ground"){
 			Destroy (this.gameObject);
 		} else if(newCollision.gameObject.tag == "Enemy"){
+			ScoreController.exp += 10;
+			if (ScoreController.exp > 100) {
+				ScoreController.exp = ScoreController.exp - 100;
+				ScoreController.playerLevel++;
+			}
+			ScoreController.AddScore (10);
 			Destroy (newCollision.gameObject);
 			Destroy (this.gameObject);
-			ScoreController.AddScore (100);
 		}
 	}
 }

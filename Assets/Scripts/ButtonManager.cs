@@ -18,7 +18,7 @@ namespace TMPro.Examples {
 
 		// Use this for initialization
 		void Start(){
-			if(SceneManager.GetActiveScene() == "Main Menu"){
+			if(SceneManager.GetActiveScene().buildIndex == 0){
 				//Create an array with all possible resolutions
 				resolutionsArray = Screen.resolutions;
 				//Clear the resolution dropdown list

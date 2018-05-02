@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TMPro.Examples {
 	public class ScoreManager : MonoBehaviour {
-
-	
-		public TextMeshProUGUI scoreText;
-
+		
 		// Use this for initialization
 		void Start () {
-			scoreText.text = "0";
+			//ScoreTextController.scoreText.text = "0";
+
+			if (SceneManager.GetActiveScene ().buildIndex == 1) {
+				ScoreController.score = 0;
+			}
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			scoreText.text = ScoreController.score.ToString ();
+			//ScoreTextController.scoreText.text = ScoreController.score.ToString ();
 		}
 	}
 }
