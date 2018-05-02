@@ -98,21 +98,24 @@ namespace TMPro.Examples {
 		/// </summary>
 		/// <param name="newCollision">New collision.</param>
 		void OnCollisionEnter(Collision newCollision){
-			if (newCollision.gameObject.tag == "Enemy") {
-				takeDamage(Random.Range(10,25),ref health,newCollision);
-			}
 			//When the player is on the ground, allow them to jump
 			if (newCollision.gameObject.tag == "Ground") {
 				canJump = true;
 			}
 		}
 
-		int takeDamage (int damage,ref int currentHealth, Collision col){
-			Vector3 pushDirection;
+		void OnTriggerEnter(Collider newCollider){
+			if (newCollider.gameObject.tag == "Enemy") {
+				takeDamage(Random.Range(10,25),ref health,newCollider);
+			}
+		}
+
+		int takeDamage (int damage,ref int currentHealth, Collider col){
+			//Vector3 pushDirection;
 			currentHealth -= damage;
 			healthBar.UpdateBar (currentHealth, 100);
-			pushDirection = col.impulse * -10;
-			rb.AddForce (pushDirection * knockBackForce);
+			//pushDirection = col.impulse * -10;
+			//rb.AddForce (pushDirection * knockBackForce);
 			Debug.Log (currentHealth);
 			if (currentHealth <= 0) {
 				Dead ();

@@ -32,8 +32,8 @@ public class EnemyController : MonoBehaviour {
 	/// Raises the collision enter event.
 	/// </summary>
 	/// <param name="newCollision">New collision.</param>
-	void OnCollisionEnter(Collision newCollision){
-		if (newCollision.gameObject.tag == "Ground") {
+	void OnTriggerEnter(Collider newCollider){
+		if (newCollider.gameObject.tag == "Ground") {
 			movingLeft = !movingLeft;
 		}
 	}
