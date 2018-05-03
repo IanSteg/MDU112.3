@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 	/// <summary>
-	/// Get the enemies rigidbody and SpriteRenderer.
+	/// Get the enemies rigidbody
 	/// </summary>
 	Rigidbody rb;
-	SpriteRenderer sr;
 
+	//set the enemy to move left
 	bool movingLeft = true;
 
 	/// <summary>
@@ -19,12 +19,13 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Get the enemies rigidbody
 		rb = GetComponent<Rigidbody> ();
-		sr = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//Make the enemy move
 		Move ();
 	}
 
@@ -33,7 +34,8 @@ public class EnemyController : MonoBehaviour {
 	/// </summary>
 	/// <param name="newCollision">New collision.</param>
 	void OnTriggerEnter(Collider newCollider){
-		if (newCollider.gameObject.tag == "Ground") {
+		//If the enemy hits a wall, toggle the direction of travel
+		if (newCollider.gameObject.tag == "Ground" || newCollider.gameObject.tag == "InteractableWall") {
 			movingLeft = !movingLeft;
 		}
 	}
@@ -42,11 +44,14 @@ public class EnemyController : MonoBehaviour {
 	/// Move this instance.
 	/// </summary>
 	void Move(){
+		//Toggle the sprites direction of travel
 		if (movingLeft) {
-			sr.flipX = false;
+			//Flip the enemy to face left
+			this.transform.localScale = new Vector3(2,2,2);
 			rb.velocity = new Vector3 (-speed, rb.velocity.y, rb.velocity.z);
 		} else {
-			sr.flipX = true;
+			//Flip the enemy to face right
+			this.transform.localScale = new Vector3(-2,2,2);
 			rb.velocity = new Vector3 (speed, rb.velocity.y, rb.velocity.z); 	
 		}
 	}

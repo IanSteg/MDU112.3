@@ -6,6 +6,11 @@ public class ShowFPS : MonoBehaviour {
 
 	float deltaTime = 0.0f;
 
+	void Start()
+	{
+		Application.targetFrameRate = 30;
+	}
+
 	void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
