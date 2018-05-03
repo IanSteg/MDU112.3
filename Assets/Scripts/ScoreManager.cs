@@ -5,19 +5,27 @@ using UnityEngine.SceneManagement;
 
 namespace TMPro.Examples {
 	public class ScoreManager : MonoBehaviour {
+
+		public SimpleHealthBar expBar;
+
+		public TextMeshProUGUI levelText;
+		public TextMeshProUGUI scoreText;
 		
 		// Use this for initialization
 		void Start () {
-			//ScoreTextController.scoreText.text = "0";
-
 			if (SceneManager.GetActiveScene ().buildIndex == 1) {
 				ScoreController.score = 0;
+				scoreText.text = "0";
+				levelText.text = "0";
+				ScoreController.playerLevel = 0;
 			}
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			//ScoreTextController.scoreText.text = ScoreController.score.ToString ();
+			scoreText.text = ScoreController.score.ToString ();
+			expBar.UpdateBar (ScoreController.exp,100);
+			levelText.text = ScoreController.playerLevel.ToString ();
 		}
 	}
 }

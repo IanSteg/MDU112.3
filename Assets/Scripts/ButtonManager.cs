@@ -61,7 +61,8 @@ namespace TMPro.Examples {
 		}
 
 		public void SetFullScreen(bool isFullscreen){
-			Screen.fullScreen = isFullscreen;
+			Screen.fullScreen = !isFullscreen;
+			Debug.Log ("Fullscreen toggled");
 		}
 
 		public void SetResolution(int resolutionIndex){

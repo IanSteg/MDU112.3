@@ -19,11 +19,7 @@ public class BulletController : MonoBehaviour {
 		if(newCollision.gameObject.tag == "Ground"){
 			Destroy (this.gameObject);
 		} else if(newCollision.gameObject.tag == "Enemy"){
-			ScoreController.exp += 10;
-			if (ScoreController.exp > 100) {
-				ScoreController.exp = ScoreController.exp - 100;
-				ScoreController.playerLevel++;
-			}
+			ScoreController.AddExp (10);
 			ScoreController.AddScore (10);
 			Destroy (newCollision.gameObject);
 			Destroy (this.gameObject);

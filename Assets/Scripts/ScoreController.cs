@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class ScoreController{
 
+
+
 	public static int playerLevel;
 	public static int exp = 0;
 
@@ -15,7 +17,7 @@ public static class ScoreController{
 
 	public static void AddExp(int expGained){
 		exp += expGained;
-		if (exp > 100) {
+		if (exp >= 100) {
 			exp = exp - 100;
 			playerLevel++;
 		}

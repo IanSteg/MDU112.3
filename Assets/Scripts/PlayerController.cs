@@ -30,6 +30,8 @@ namespace TMPro.Examples {
 
 		int time = 180;
 
+		int enemiesRemaining;
+
 		/// <summary>
 		/// Define the bools.
 		/// </summary>
@@ -39,6 +41,8 @@ namespace TMPro.Examples {
 		public SimpleHealthBar healthBar;
 
 		public TextMeshProUGUI timerText;
+
+		public TextMeshProUGUI enemiesRemainingText;
 
 		// Use this for initialization
 		void Start () {
@@ -84,6 +88,11 @@ namespace TMPro.Examples {
 						Shoot ();
 					}
 				}
+				enemiesRemaining = GameObject.FindGameObjectsWithTag ("Enemy").Length;
+				enemiesRemainingText.text = enemiesRemaining.ToString();
+				if (enemiesRemaining <= 0) {
+					Win ();
+				}
 			}
 
 		/// <summary>
@@ -116,7 +125,6 @@ namespace TMPro.Examples {
 			healthBar.UpdateBar (currentHealth, 100);
 			//pushDirection = col.impulse * -10;
 			//rb.AddForce (pushDirection * knockBackForce);
-			Debug.Log (currentHealth);
 			if (currentHealth <= 0) {
 				Dead ();
 			}
@@ -132,6 +140,13 @@ namespace TMPro.Examples {
 			time--;
 			StartCoroutine(Delay(1));
 			timerText.text = time.ToString();
+			if (time <= 0) {
+				Dead ();
+			}
+		}
+
+		void Win(){
+			SceneManager.LoadScene ("Win");
 		}
 	}
 }

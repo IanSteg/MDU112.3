@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 124913522053949164}
   - component: {fileID: 81064846905339460}
   - component: {fileID: 114882960068091126}
+  - component: {fileID: 114426758312597272}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -157,6 +158,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -231,6 +233,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1397509864498364}
   m_Enabled: 1
+--- !u!114 &114426758312597272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397509864498364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b165e5bcf0f8648b56224284b7e650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114508070813282694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +263,7 @@ MonoBehaviour:
   jumpHeight: 6
   knockBackForce: 25
   healthBar: {fileID: 0}
-  expBar: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!114 &114882960068091126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6d56871ebf6454abcad345c8955140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expBar: {fileID: 0}
+  levelText: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!124 &124913522053949164
 Behaviour:
@@ -283,6 +298,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
